@@ -1,0 +1,121 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="col-12 m-0 m-auto cus-border rounded bg-light">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="col-12">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1 text-center">Register New User</h3>
+            </div>
+            <hr class="w-100" />
+
+            <!-- Email field -->
+            <div class="row form-group justify-content-between">
+                <div class="col-6 row">
+                    <div class="col-4">
+                        <label asp-for="Input.Email"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="Email" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <!-- Password field -->
+                <div class="col-6 row">
+                    <div class="col-4">
+                        <label asp-for="Input.Password"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" placeholder="Password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Confirm Password field -->
+            <div class="row form-group justify-content-between">
+                <div class="col-6 row">
+                    <div class="col-4">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" placeholder="Confirm Password" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address field -->
+            <div class="row form-group justify-content-between">
+                <div class="col-6 row">
+                    <div class="col-4">
+                        <label asp-for="Input.Address"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Input.Address" class="form-control" placeholder="Enter Address" required />
+                        <span asp-validation-for="Input.Address" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- User Role Radio Button -->
+            <div class="row form-group justify-content-between">
+                <div class="col-6 row">
+                    <div class="col-4">
+                        <label>User Role</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="radio" name="rdUserRole" value="Admin" /> &nbsp; Admin
+                        &nbsp;
+                        <input type="radio" name="rdUserRole" value="Doctor" /> &nbsp; Doctor
+                        &nbsp;
+                        <input type="radio" name="rdUserRole" value="Patient" checked /> &nbsp; Patient
+                    </div>
+                </div>
+            </div>
+            <!-- Submit Button -->
+            <div class="row form-group pb-1 justify-content-center">
+                <div class="col-3 pb-2">
+                    <button id="registerSubmit" type="submit" class="btn btn-primary form-control">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <style>
+        .cus-border {
+            border: 2px solid #004481;
+        }
+        hr {
+            border-color: black;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        input[type=text], input[type=email], input[type=password] {
+            border-color: black;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background-color: #004481;
+            border: none;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+}
+ 
