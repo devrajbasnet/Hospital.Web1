@@ -19,6 +19,6 @@ namespace Hospital.Models
         public ICollection<Room> Rooms { get; set; }
         public ICollection<Contact> Contacts { get; set; }
         [NotMapped]
-        public object? Address { get; set; }
+        public object? Address {get; set; }
     }
 }
